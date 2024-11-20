@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CurrentOrderActivity"
+    tools:ignore="VisualLintBounds">
+
+
+    <ListView
+        android:id="@+id/currentOrderList"
+        android:layout_width="398dp"
+        android:layout_height="351dp"
+        android:layout_above="@+id/buttonLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonLayout"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/mainMenuButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/placeOrderButton"
+        android:layout_width="125dp"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:text="@string/place_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.906"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentOrderList"
+        app:layout_constraintVertical_bias="0.419" />
+
+    <EditText
+        android:id="@+id/currentOrderSubTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/buttonLayout"
+        android:layout_marginTop="536dp"
+        android:autofillHints=""
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="@string/subtotal"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:text="@string/subTotalText"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/salesTaxEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/buttonLayout"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="@string/salestax"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:text="@string/sales_tax"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentOrderSubTotal" />
+
+    <EditText
+        android:id="@+id/totalAmountEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/buttonLayout"
+        android:autofillHints=""
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="@string/totalamount"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:text="@string/total_amount"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salesTaxEditText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/mainMenuButton"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:text="@string/main_menu"
+        app:layout_constraintBottom_toTopOf="@+id/currentOrderList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.968"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/current_order"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/currentOrderList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
