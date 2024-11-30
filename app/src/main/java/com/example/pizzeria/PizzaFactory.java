@@ -1,4 +1,4 @@
-package pizzeria;
+package com.example.pizzeria;
 
 /**
  * Public interface containing methods to be implemented by the ChicagoPizza and NYPizza classes.

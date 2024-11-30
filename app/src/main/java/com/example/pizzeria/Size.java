@@ -1,4 +1,4 @@
-package pizzeria;
+package com.example.pizzeria;
 
 /**
  * The size options presented to the user.

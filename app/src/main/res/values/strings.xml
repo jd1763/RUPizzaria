@@ -1,3 +1,80 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">RUPizzaria</string>
+    <string name="main_menu">Main Menu</string>
+
+    <string name="cancel_selected_order">Cancel Selected Order</string>
+    <string name="all_orders">All Orders</string>
+
+    <!-- Order Summary -->
+    <string name="sub_total_format">Subtotal: $%.2f</string>
+    <string name="sales_tax_format">Sales Tax: $%.2f</string>
+    <string name="total_amount_format">Total Amount: $%.2f</string>
+    <string name="place_order">Place Order</string>
+    <string name="current_order">Current Order</string>
+    <string name="order_placed">The order has been placed.</string>
+    <string name="clear_order">Clear Order</string>
+    <string name="remove_pizza">Remove Pizza</string>
+
+    <!-- Pizza Menu -->
+    <string name="pizza_menu">Pizza Menu</string>
+    <string name="ny_style_pizza">NY Style Pizza</string>
+    <string name="chicago_style_pizza">Chicago Style Pizza</string>
+    <string name="build_your_own">Build Your Own</string>
+    <string name="deluxe">Deluxe</string>
+    <string name="bbq_chicken">BBQ Chicken</string>
+    <string name="meatzza">Meatzza</string>
+    <string name="pizza_added_to_order_message">Pizza has been added to the order.</string>
+    <string name="select_crust">Select Crust</string>
+    <string name="crust_hand_tossed">Hand Tossed</string>
+    <string name="crust_thin">Thin Crust</string>
+    <string name="crust_pan">Pan Crust</string>
+    <string name="crust_deep_dish">Deep Dish</string>
+    <string name="crust_stuffed">Stuffed Crust</string>
+
+    <!-- Quantity Selection -->
+    <string name="select_quantity">Select Quantity</string>
+    <string name="quantity">Quantity</string>
+    <string name="quantity_hint">1</string>
+    <string name="add_to_order">Add to Order</string>
+
+    <!-- Toppings -->
+    <string name="select_toppings">Select Toppings</string>
+    <string name="sausage">Sausage</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="green_pepper">Green Pepper</string>
+    <string name="onion">Onion</string>
+    <string name="mushroom">Mushroom</string>
+    <string name="cheddar">Cheddar</string>
+    <string name="bbq_chicken_topping">BBQ Chicken</string>
+    <string name="provolone">Provolone</string>
+    <string name="beef">Beef</string>
+    <string name="ham">Ham</string>
+
+    <!-- Errors and Prompts -->
+    <string name="empty_order_error">Your order is empty. Add items to place an order.</string>
+    <string name="pizza_selection_error">Please select a pizza type and crust.</string>
+    <string name="order_cleared_message">Order cleared.</string>
+    <string name="pizza_removed_message">Pizza removed from the order.</string>
+
+    <!-- String Arrays -->
+    <string-array name="pizza_sizes_array">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="quantity_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
 </resources>

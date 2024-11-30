@@ -1,4 +1,4 @@
-package pizzeria;
+package com.example.pizzeria;
 
 /**
  * Enum containing the possible crust options that will be presented for the user to pick from.

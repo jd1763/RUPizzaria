@@ -1,4 +1,4 @@
-package com.example.rupizzaria;
+package com.example.pizzeria;
 
 import org.junit.Test;
 

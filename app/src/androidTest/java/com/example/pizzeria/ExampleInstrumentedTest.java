@@ -1,4 +1,4 @@
-package com.example.rupizzaria;
+package com.example.pizzeria;
 
 import android.content.Context;
 

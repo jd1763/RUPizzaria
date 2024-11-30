@@ -1,4 +1,4 @@
-package pizzeria;
+package com.example.pizzeria;
 
 /**
  * Enum representing available pizza toppings with display-friendly names.

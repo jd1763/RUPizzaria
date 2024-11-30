@@ -1,4 +1,4 @@
-package pizzeria;
+package com.example.pizzeria;
 
 /**
  * A factory class that produces different types of Chicago-style pizzas.
