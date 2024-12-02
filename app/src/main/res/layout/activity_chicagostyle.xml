@@ -46,31 +46,6 @@
         app:layout_constraintTop_toBottomOf="@+id/ChicagoPizzaImageView"
         app:layout_constraintVertical_bias="0.907" />
 
-    <Button
-        android:id="@+id/ChicagoBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Main Menu"
-        app:layout_constraintEnd_toStartOf="@+id/ChicagoPizzaImageView"
-        app:layout_constraintHorizontal_bias="0.427"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/ChicagoPizzaTypeTextView"
-        android:layout_width="191dp"
-        android:layout_height="92dp"
-        android:layout_marginEnd="4dp"
-        android:shadowColor="#5810E7"
-        android:text="Chicago Style Pizza"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoPizzaImageView"
-        app:layout_constraintVertical_bias="0.01" />
-
     <ImageView
         android:id="@+id/ChicagoPizzaImageView"
         android:layout_width="199dp"
@@ -88,9 +63,9 @@
         android:layout_width="184dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="136dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoBackButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/ChicagoSizeSpinner"
@@ -133,45 +108,49 @@
         android:id="@+id/ChicagoMinusButton"
         android:layout_width="75dp"
         android:layout_height="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="32dp"
         android:text="-"
         app:layout_constraintEnd_toStartOf="@+id/ChicagoQuantityEditTextNumber"
+        app:layout_constraintStart_toEndOf="@+id/ChicagoQuantityTextView"
         app:layout_constraintTop_toBottomOf="@+id/ChicagoCrustValEditText" />
-
-    <Button
-        android:id="@+id/ChicagoPlusButton"
-        android:layout_width="76dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="68dp"
-        android:text="+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoPizzaTypeTextView" />
 
     <EditText
         android:id="@+id/ChicagoQuantityEditTextNumber"
         android:layout_width="70dp"
         android:layout_height="39dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginBottom="60dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="number"
         android:text="1"
-        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/ChicagoProvoloneCheckBox"
-        app:layout_constraintEnd_toStartOf="@+id/ChicagoPlusButton" />
+        app:layout_constraintEnd_toStartOf="@+id/ChicagoPlusButton"
+        app:layout_constraintStart_toEndOf="@+id/ChicagoMinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/ChicagoPizzaImageView" />
+
+    <Button
+        android:id="@+id/ChicagoPlusButton"
+        android:layout_width="76dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="4dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ChicagoPizzaImageView" />
 
     <EditText
         android:id="@+id/ChicagoCrustValEditText"
         android:layout_width="130dp"
         android:layout_height="37dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="text"
         android:text="CrustValue"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/ChicagoPizzaTypeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoSizeSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/ChicagoSizeSpinner"
+        tools:layout_editor_absoluteX="58dp" />
 
     <CheckBox
         android:id="@+id/ChicagoSausageCheckBox"

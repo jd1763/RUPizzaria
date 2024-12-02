@@ -46,31 +46,6 @@
         app:layout_constraintTop_toBottomOf="@+id/PizzaImageView"
         app:layout_constraintVertical_bias="0.907" />
 
-    <Button
-        android:id="@+id/BackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Main Menu"
-        app:layout_constraintEnd_toStartOf="@+id/PizzaImageView"
-        app:layout_constraintHorizontal_bias="0.427"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PizzaTypeTextView"
-        android:layout_width="191dp"
-        android:layout_height="92dp"
-        android:layout_marginEnd="4dp"
-        android:shadowColor="#5810E7"
-        android:text="NY Style Pizza"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PizzaImageView"
-        app:layout_constraintVertical_bias="0.01" />
-
     <ImageView
         android:id="@+id/PizzaImageView"
         android:layout_width="199dp"
@@ -88,9 +63,9 @@
         android:layout_width="184dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="136dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BackButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/SizeSpinner"
@@ -133,45 +108,49 @@
         android:id="@+id/MinusButton"
         android:layout_width="75dp"
         android:layout_height="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="32dp"
         android:text="-"
         app:layout_constraintEnd_toStartOf="@+id/QuantityEditTextNumber"
+        app:layout_constraintStart_toEndOf="@+id/QuantityTextView"
         app:layout_constraintTop_toBottomOf="@+id/CrustValEditText" />
-
-    <Button
-        android:id="@+id/PlusButton"
-        android:layout_width="76dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="68dp"
-        android:text="+"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PizzaTypeTextView" />
 
     <EditText
         android:id="@+id/QuantityEditTextNumber"
         android:layout_width="70dp"
         android:layout_height="39dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginBottom="60dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="number"
         android:text="1"
-        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/ProvoloneCheckBox"
-        app:layout_constraintEnd_toStartOf="@+id/PlusButton" />
+        app:layout_constraintEnd_toStartOf="@+id/PlusButton"
+        app:layout_constraintStart_toEndOf="@+id/MinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/PizzaImageView" />
+
+    <Button
+        android:id="@+id/PlusButton"
+        android:layout_width="76dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="4dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PizzaImageView" />
 
     <EditText
         android:id="@+id/CrustValEditText"
         android:layout_width="130dp"
         android:layout_height="37dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="text"
         android:text="CrustValue"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/PizzaTypeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/SizeSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/SizeSpinner"
+        tools:layout_editor_absoluteX="58dp" />
 
     <CheckBox
         android:id="@+id/SausageCheckBox"

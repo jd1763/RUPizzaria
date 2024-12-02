@@ -46,14 +46,12 @@ public class AllOrdersActivity extends AppCompatActivity {
         currentOrderList = findViewById(R.id.currentOrderList);
         totalAmountEditText = findViewById(R.id.totalAmountEditText);
         cancelButton = findViewById(R.id.cancelOrderButton);
-        mainMenuButton = findViewById(R.id.mainMenuButton);
         // Get the OrderManager object
         orderManager = GlobalDataManager.getInstance().getOrderManager();
         // Populate the order number spinner
         updateState();
         // Set up event handlers
         cancelButton.setOnClickListener(v -> cancelOrder());
-        mainMenuButton.setOnClickListener(v -> mainMenuClick());
 
         orderNumberSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

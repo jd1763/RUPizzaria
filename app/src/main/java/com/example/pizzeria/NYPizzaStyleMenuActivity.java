@@ -28,7 +28,7 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
     private Spinner pizzaTypeSpinner, sizeSpinner;
     private EditText crustValEditText, quantityEditTextNumber, nyPizzaSubTotal;
     private CheckBox cheddarCheckBox, sausageCheckBox, pepperoniCheckBox, greenPepperCheckBox, onionCheckBox, mushroomCheckBox, bbqChickenCheckBox, provoloneCheckBox, beefCheckBox, hamCheckBox;
-    private Button backButton, addOrderButton, plusButton, minusButton;
+    private Button addOrderButton, plusButton, minusButton;
 
     private Pizza currentPizza;
     private OrderManager orderManager;
@@ -71,7 +71,6 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
         quantityEditTextNumber.setText("1");
         quantityEditTextNumber.setEnabled(false);
 
-        backButton = findViewById(R.id.BackButton);
         addOrderButton = findViewById(R.id.AddOrderButton);
         plusButton = findViewById(R.id.PlusButton);
         minusButton = findViewById(R.id.MinusButton);
@@ -307,7 +306,6 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
         plusButton.setOnClickListener(v -> increaseQuantity());
         minusButton.setOnClickListener(v -> decreaseQuantity());
         addOrderButton.setOnClickListener(v -> addToOrder());
-        backButton.setOnClickListener(v -> finish());
     }
 
     /**

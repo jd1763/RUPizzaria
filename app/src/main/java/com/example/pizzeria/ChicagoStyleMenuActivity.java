@@ -28,7 +28,7 @@ public class ChicagoStyleMenuActivity extends AppCompatActivity {
     private Spinner pizzaTypeSpinner, sizeSpinner;
     private EditText crustValEditText, quantityEditTextNumber, pizzaSubTotal;
     private CheckBox cheddarCheckBox, sausageCheckBox, pepperoniCheckBox, greenPepperCheckBox, onionCheckBox, mushroomCheckBox, bbqChickenCheckBox, provoloneCheckBox, beefCheckBox, hamCheckBox;
-    private Button backButton, addOrderButton, plusButton, minusButton;
+    private Button addOrderButton, plusButton, minusButton;
 
     private Pizza currentPizza;
     private OrderManager orderManager;
@@ -71,7 +71,6 @@ public class ChicagoStyleMenuActivity extends AppCompatActivity {
         quantityEditTextNumber.setText("1");
         quantityEditTextNumber.setEnabled(false);
 
-        backButton = findViewById(R.id.ChicagoBackButton);
         addOrderButton = findViewById(R.id.ChicagoAddOrderButton);
         plusButton = findViewById(R.id.ChicagoPlusButton);
         minusButton = findViewById(R.id.ChicagoMinusButton);
@@ -297,7 +296,6 @@ public class ChicagoStyleMenuActivity extends AppCompatActivity {
         plusButton.setOnClickListener(v -> increaseQuantity());
         minusButton.setOnClickListener(v -> decreaseQuantity());
         addOrderButton.setOnClickListener(v -> addToOrder());
-        backButton.setOnClickListener(v -> finish());
     }
 
     /**

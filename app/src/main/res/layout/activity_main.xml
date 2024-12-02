@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/RUPizzaImage"
-        android:layout_width="458dp"
+        android:layout_width="0dp"
         android:layout_height="214dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"

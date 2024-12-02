@@ -21,11 +21,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.pizzeria.ChicagoStyleMenuActivity"/>
-        <activity android:name="com.example.pizzeria.NYPizzaStyleMenuActivity"/>
-        <activity android:name="com.example.pizzeria.CurrentOrderActivity"/>
-        <activity android:name="com.example.pizzeria.AllOrdersActivity"/>
-
+        <activity
+            android:name="com.example.pizzeria.ChicagoStyleMenuActivity"
+            android:label="Chicago Style Menu"
+            android:parentActivityName="com.example.pizzeria.MainActivity"/>
+        <activity
+            android:name="com.example.pizzeria.NYPizzaStyleMenuActivity"
+            android:label="New York Style Menu"
+            android:parentActivityName="com.example.pizzeria.MainActivity"/>
+        <activity
+            android:name="com.example.pizzeria.CurrentOrderActivity"
+            android:label="Viewing Current Order"
+            android:parentActivityName="com.example.pizzeria.MainActivity"/>
+        <activity
+            android:name="com.example.pizzeria.AllOrdersActivity"
+            android:label="Order History"
+            android:parentActivityName="com.example.pizzeria.MainActivity"/>
     </application>
 
 </manifest>

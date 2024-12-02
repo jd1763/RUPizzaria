@@ -50,7 +50,6 @@ public class CurrentOrderActivity extends AppCompatActivity implements AdapterVi
 
         // Initialize buttons
         Button placeOrderButton = findViewById(R.id.placeOrderButton);
-        Button mainMenuButton = findViewById(R.id.mainMenuButton);
 
         // Initialize OrderManager
         orderManager = GlobalDataManager.getInstance().getOrderManager();
@@ -63,7 +62,6 @@ public class CurrentOrderActivity extends AppCompatActivity implements AdapterVi
         // Set click listeners
         currentOrderList.setOnItemClickListener(this);
         placeOrderButton.setOnClickListener(v -> placeOrder());
-        mainMenuButton.setOnClickListener(v -> navigateToMainMenu());
 
         // Update the view
         updateView();
