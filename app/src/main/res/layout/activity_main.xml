@@ -20,30 +20,38 @@
 
     <ImageButton
         android:id="@+id/PlacedOrdersButton"
-        android:layout_width="203dp"
-        android:layout_height="258dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/OrdersPlacedTextView"
+        app:layout_constraintEnd_toStartOf="@+id/CurrentOrdersButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ChicagoStylePizzaTextView"
         app:srcCompat="@drawable/orders_placed" />
 
     <ImageButton
         android:id="@+id/ChicagoStylePizzaButton"
-        android:layout_width="204dp"
-        android:layout_height="213dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/ChicagoStylePizzaTextView"
+        app:layout_constraintEnd_toStartOf="@+id/NYStylePizzaButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RUPizzaImage"
         app:srcCompat="@drawable/chicago_style_pizza" />
 
     <ImageButton
         android:id="@+id/CurrentOrdersButton"
-        android:layout_width="205dp"
-        android:layout_height="258dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/CurrentOrdersTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toEndOf="@+id/PlacedOrdersButton"
@@ -52,11 +60,12 @@
 
     <ImageButton
         android:id="@+id/NYStylePizzaButton"
-        android:layout_width="206dp"
-        android:layout_height="212dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/NYStylePizzaTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ChicagoStylePizzaButton"
@@ -65,54 +74,59 @@
 
     <TextView
         android:id="@+id/OrdersPlacedTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:gravity="center"
         android:text="Orders Placed"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/CurrentOrdersTextView"
-        app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PlacedOrdersButton"
-        app:layout_constraintVertical_bias="0.264" />
+        app:layout_constraintTop_toBottomOf="@+id/PlacedOrdersButton" />
 
     <TextView
         android:id="@+id/CurrentOrdersTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
         android:text="Current Orders"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CurrentOrdersButton"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintStart_toEndOf="@+id/OrdersPlacedTextView"
+        app:layout_constraintTop_toBottomOf="@+id/CurrentOrdersButton" />
 
     <TextView
         android:id="@+id/ChicagoStylePizzaTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:gravity="center"
         android:text="Chicago Style Pizza"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/PlacedOrdersButton"
         app:layout_constraintEnd_toStartOf="@+id/NYStylePizzaTextView"
-        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.295"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ChicagoStylePizzaButton" />
 
     <TextView
         android:id="@+id/NYStylePizzaTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
         android:text="NY Style Pizza"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/CurrentOrdersButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ChicagoStylePizzaTextView"
         app:layout_constraintTop_toBottomOf="@+id/NYStylePizzaButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
