@@ -6,39 +6,45 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rupizzaria.R;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * Activity for configuring and ordering NY-style pizzas.
- * @author Jorgeluis Done
+ * @author Jorgeluis Done and Frank Garcia
  */
-public class NYPizzaStyleMenuActivity extends AppCompatActivity {
-
+public class NYPizzaStyleMenuActivity extends AppCompatActivity
+        implements ToppingsAdapter.onToppingsInteractionsListener {
+    private ArrayList<ToppingItem> toppings = new ArrayList<>();
+    ToppingsAdapter toppingsAdapter;
+    private int[] toppingImages = {R.drawable.sausage, R.drawable.pepperoni, R.drawable.greenpepper,
+            R.drawable.onion, R.drawable.mushroom, R.drawable.cheddar, R.drawable.bbqchicken,
+            R.drawable.provolone, R.drawable.beef, R.drawable.ham};
     private Spinner pizzaTypeSpinner, sizeSpinner;
     private EditText crustValEditText, quantityEditTextNumber, nyPizzaSubTotal;
-    private CheckBox cheddarCheckBox, sausageCheckBox, pepperoniCheckBox, greenPepperCheckBox, onionCheckBox, mushroomCheckBox, bbqChickenCheckBox, provoloneCheckBox, beefCheckBox, hamCheckBox;
     private Button addOrderButton, plusButton, minusButton;
-
-    private Pizza currentPizza;
+    private RecyclerView rcview;
+    private static Pizza currentPizza;
     private OrderManager orderManager;
 
-    private HashMap<Topping, CheckBox> toppingToCheckboxMap;
 
     /**
      * Called when the activity is starting. This is where most initialization should go.
      *
-     * @param savedInstanceState If the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle).
+     * @param savedInstanceState If the activity is being re-initialized after previously being
+     *                           shut down then this Bundle contains the data it most recently
+     *                           supplied in onSaveInstanceState(Bundle).
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +54,12 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
         initializeViews();
         setupPizzaTypeSpinner();
         setupSizeSpinner();
-        setupToppingCheckboxes();
         setupButtonHandlers();
 
-        pizzaTypeSpinner.setSelection(((ArrayAdapter<String>) pizzaTypeSpinner.getAdapter()).getPosition("Build Your Own"));
-        sizeSpinner.setSelection(((ArrayAdapter<String>) sizeSpinner.getAdapter()).getPosition("Small"));
+        pizzaTypeSpinner.setSelection(((ArrayAdapter<String>) pizzaTypeSpinner.getAdapter()).
+                getPosition("Build Your Own"));
+        sizeSpinner.setSelection(((ArrayAdapter<String>) sizeSpinner.getAdapter()).
+                getPosition("Small"));
         selectPizza("Build Your Own", "Hand Tossed");
         orderManager = GlobalDataManager.getInstance().getOrderManager();
     }
@@ -71,40 +78,37 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
         quantityEditTextNumber.setText("1");
         quantityEditTextNumber.setEnabled(false);
 
+        rcview = findViewById(R.id.rc_view_menu);
+        toppingsAdapter = new ToppingsAdapter(this, toppings, this, this);
+        rcview.setAdapter(toppingsAdapter);
+        rcview.setLayoutManager(new LinearLayoutManager(this));
+
         addOrderButton = findViewById(R.id.AddOrderButton);
         plusButton = findViewById(R.id.PlusButton);
         minusButton = findViewById(R.id.MinusButton);
+        setUpToppingItems();
+    }
 
-        cheddarCheckBox = findViewById(R.id.CheddarCheckBox);
-        sausageCheckBox = findViewById(R.id.SausageCheckBox);
-        pepperoniCheckBox = findViewById(R.id.PepperoniCheckBox);
-        greenPepperCheckBox = findViewById(R.id.GreenPepperCheckBox);
-        onionCheckBox = findViewById(com.example.rupizzaria.R.id.OnionCheckBox);
-        mushroomCheckBox = findViewById(R.id.MushroomCheckBox);
-        bbqChickenCheckBox = findViewById(R.id.BBQChickenCheckBox);
-        provoloneCheckBox = findViewById(R.id.ProvoloneCheckBox);
-        beefCheckBox = findViewById(R.id.BeefCheckBox);
-        hamCheckBox = findViewById(R.id.HamCheckBox);
+    /**
+     * Initializes and populates the RecyclerView with the topping items.
+     */
+    private void setUpToppingItems() {
+        String[] toppingNames = getResources().getStringArray(R.array.toppingNames);
 
-        toppingToCheckboxMap = new HashMap<>();
-        toppingToCheckboxMap.put(Topping.CHEDDAR, cheddarCheckBox);
-        toppingToCheckboxMap.put(Topping.SAUSAGE, sausageCheckBox);
-        toppingToCheckboxMap.put(Topping.PEPPERONI, pepperoniCheckBox);
-        toppingToCheckboxMap.put(Topping.GREENPEPPER, greenPepperCheckBox);
-        toppingToCheckboxMap.put(Topping.ONION, onionCheckBox);
-        toppingToCheckboxMap.put(Topping.MUSHROOM, mushroomCheckBox);
-        toppingToCheckboxMap.put(Topping.BBQCHICKEN, bbqChickenCheckBox);
-        toppingToCheckboxMap.put(Topping.PROVOLONE, provoloneCheckBox);
-        toppingToCheckboxMap.put(Topping.BEEF, beefCheckBox);
-        toppingToCheckboxMap.put(Topping.HAM, hamCheckBox);
+        for (int i = 0; i < toppingNames.length; i++) {
+            toppings.add(new ToppingItem(toppingNames[i], toppingImages[i],
+                    "Unselected"));
+        }
     }
 
     /**
      * Sets up the spinner for selecting pizza types.
      */
     private void setupPizzaTypeSpinner() {
-        List<String> pizzaTypes = Arrays.asList("Deluxe", "Build Your Own", "BBQ Chicken", "Meatzza");
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pizzaTypes);
+        List<String> pizzaTypes = Arrays.asList("Deluxe", "Build Your Own", "BBQ Chicken",
+                "Meatzza");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, pizzaTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pizzaTypeSpinner.setAdapter(adapter);
         pizzaTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -127,7 +131,8 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
      */
     private void setupSizeSpinner() {
         List<String> sizes = Arrays.asList("Small", "Medium", "Large");
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sizes);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, sizes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sizeSpinner.setAdapter(adapter);
         sizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -149,45 +154,16 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets up checkbox listeners for each topping, allowing changes only if the current pizza supports it.
+     * Updates the selection buttons in the RecyclerView to correspond with the selected
+     * pizza type.
      */
-    private void setupToppingCheckboxes() {
-        toppingToCheckboxMap.forEach((topping, checkBox) -> {
-            checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                if (currentPizza instanceof BuildYourOwn) {
-                    handleToppingChange(topping, isChecked);
-                }
-            });
-        });
-    }
-
-    /**
-     * Handles changes to topping selections, adding or removing them from the current pizza.
-     *
-     * @param topping   The topping that was changed.
-     * @param isChecked True if the topping was added, false if removed.
-     */
-    private void handleToppingChange(Topping topping, boolean isChecked) {
-        CheckBox checkBox = getCheckBoxForTopping(topping);
-        if (checkBox == null) {
-            Log.e("DEBUG", "Checkbox for topping " + topping + " not found.");
-            return;
+    private void updateToppingsAccessibility(String pizzaType) {
+        if (!pizzaType.equals("Build Your Own")) {
+            List<String> stringOfToppings = new ArrayList<>();
+            for (Topping topping : currentPizza.getToppings())
+                stringOfToppings.add(topping.toString());
+            toppingsAdapter.updateSelections(stringOfToppings);
         }
-
-        if (isChecked && currentPizza.getToppings().size() >= 7) {
-            Toast.makeText(this, "You can only select up to 7 toppings.", Toast.LENGTH_SHORT).show();
-            checkBox.setChecked(false);
-            return;
-        }
-
-        if (isChecked) {
-            currentPizza.addTopping(topping);
-            Log.d("DEBUG", "Added " + topping + " to pizza.");
-        } else {
-            currentPizza.removeTopping(topping);
-            Log.d("DEBUG", "Removed " + topping + " from pizza.");
-        }
-        updateTotalPrice();
     }
 
     /**
@@ -219,41 +195,6 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * Gets the CheckBox associated with a specific topping.
-     *
-     * @param topping The topping to find the CheckBox for.
-     * @return The corresponding CheckBox.
-     */
-    private CheckBox getCheckBoxForTopping(Topping topping) {
-        return toppingToCheckboxMap.get(topping);
-    }
-
-    /**
-     * Updates the accessibility of topping checkboxes based on the current pizza type.
-     *
-     * @param pizzaType The current pizza type.
-     */
-    private void updateToppingsAccessibility(String pizzaType) {
-        boolean isBuildYourOwn = "Build Your Own".equals(pizzaType);
-        // Disable all checkboxes initially
-        toppingToCheckboxMap.values().forEach(checkBox -> {
-            checkBox.setEnabled(isBuildYourOwn);
-            checkBox.setChecked(false);
-        });
-
-        // If it's not a "Build Your Own" pizza, check and disable the checkboxes for the default toppings
-        if (!isBuildYourOwn && currentPizza != null) {
-            for (Topping topping : currentPizza.getToppings()) {
-                CheckBox checkBox = toppingToCheckboxMap.get(topping);
-                if (checkBox != null) {
-                    checkBox.setChecked(true);
-                    checkBox.setEnabled(false);
-                }
-            }
-        }
-    }
-
-    /**
      * Selects a pizza based on type and crust, clearing old toppings and setting new ones.
      *
      * @param pizzaType The type of pizza.
@@ -276,6 +217,7 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
                 break;
             case "Build Your Own":
                 currentPizza = new BuildYourOwn(crust, selectedSize);
+                toppingsAdapter.enableSelectButtons();
                 break;
             default:
                 Log.e("DEBUG", "Unknown pizza type: " + pizzaType);
@@ -287,6 +229,8 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
             currentPizza.setCrust(crust);
             updateTotalPrice();
         }
+
+        if (!pizzaType.equals("Build Your Own")) toppingsAdapter.disableSelectButtons();
     }
 
     /**
@@ -294,7 +238,8 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
      */
     private void updateTotalPrice() {
         if (currentPizza != null) {
-            double totalPrice = currentPizza.price() * Integer.valueOf(quantityEditTextNumber.getText().toString());
+            double totalPrice = currentPizza.price() * Integer.valueOf(
+                    quantityEditTextNumber.getText().toString());
             nyPizzaSubTotal.setText(String.format("%.2f", totalPrice));
         }
     }
@@ -334,7 +279,8 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
     private void addToOrder() {
         if (currentPizza == null) {
             Log.e("DEBUG", "No current pizza to add to order.");
-            Toast.makeText(this, "No pizza selected to add to order!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No pizza selected to add to order!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -349,8 +295,9 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
                 orderManager.getCurrentOrder().addPizza(pizzaToAdd);
                 Log.d("DEBUG", "Added pizza to order, quantity: " + orderQuantity);
             }
-            Toast.makeText(this, "Pizza successfully added to order.", Toast.LENGTH_LONG).show();
-            resetOrder(); // Resets UI after adding the pizza to the order
+            Toast.makeText(this, "Pizza successfully added to order.",
+                    Toast.LENGTH_LONG).show();
+            resetOrder();
         } catch (Exception e) {
             Log.e("DEBUG", "Error adding pizza to order: " + e.toString());
             e.printStackTrace();
@@ -389,7 +336,8 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
                     cloned = new Meatzza(original.getCrust(), original.getSize());
                     break;
                 default:
-                    Log.e("DEBUG", "Unknown pizza type: " + original.getClass().getSimpleName());
+                    Log.e("DEBUG", "Unknown pizza type: " +
+                            original.getClass().getSimpleName());
                     return null;
             }
         } catch (Exception e) {
@@ -400,7 +348,8 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
     }
 
     /**
-     * Resets the order after a pizza is added to the order, clearing selections and resetting the UI.
+     * Resets the order after a pizza is added to the order, clearing selections
+     * and resetting the UI.
      */
     private void resetOrder() {
         Log.d("DEBUG", "Resetting order...");
@@ -414,13 +363,16 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
             clearToppings();
         }
         Log.d("DEBUG", "Order reset successfully.");
+        selectPizza(pizzaTypeSpinner.getSelectedItem().toString(),
+                sizeSpinner.getSelectedItem().toString());
     }
 
     /**
      * Clears all selected toppings from the UI.
      */
     private void clearToppings() {
-        toppingToCheckboxMap.values().forEach(checkBox -> checkBox.setChecked(false));
+        toppingsAdapter.resetSelections();
+        updateTotalPrice();
     }
 
     /**
@@ -435,6 +387,29 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity {
             case "Medium": return Size.MEDIUM;
             case "Small": return Size.SMALL;
             default: return Size.SMALL;
+        }
+    }
+
+    /**
+     * Handler for when toppings are selected from the RecyclerView.
+     * @param topping The topping item selected in the RecyclerView.
+     */
+    @Override
+    public void selectTopping(Topping topping) {
+        currentPizza.addTopping(topping);
+        updateTotalPrice();
+    }
+
+    /**
+     * Handler for when toppings are unselected from the RecyclerView.
+     * @param topping The topping item unselected in the RecyclerView.
+     */
+    @Override
+    public void unselectTopping(Topping topping) {
+        Log.d("DEBUG", "Current selected pizza in unselectTopping method: " + currentPizza);
+        if (currentPizza instanceof BuildYourOwn) {
+                currentPizza.removeTopping(topping);
+            updateTotalPrice();
         }
     }
 }

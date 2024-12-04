@@ -19,7 +19,8 @@ public class Meatzza extends Pizza {
      */
     public Meatzza(Crust crust, Size size) {
         // Initialize with fixed toppings for Meatzza pizza
-        super(Arrays.asList(Topping.SAUSAGE, Topping.PEPPERONI, Topping.BEEF, Topping.HAM), crust, size);
+        super(Arrays.asList(Topping.SAUSAGE, Topping.PEPPERONI, Topping.BEEF,
+                Topping.HAM), crust, size);
     }
 
     /**

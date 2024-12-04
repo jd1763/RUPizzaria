@@ -11,20 +11,11 @@
         android:id="@+id/AddOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="68dp"
+        android:layout_marginBottom="33dp"
         android:text="Add to Order"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BBQChickenCheckBox" />
-
-    <CheckBox
-        android:id="@+id/CheddarCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="Cheddar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProvoloneCheckBox" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/NYPizzaSubTotal"
@@ -33,7 +24,7 @@
         android:layout_below="@id/AddOrderButton"
         android:layout_alignParentStart="true"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="33dp"
         android:autofillHints=""
         android:clickable="false"
         android:focusable="false"
@@ -41,8 +32,8 @@
         android:inputType="none"
         android:minHeight="48dp"
         android:text="@string/sub_total_format"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SausageCheckBox" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/PizzaImageView"
@@ -59,7 +50,7 @@
         android:layout_width="184dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,38 +65,35 @@
     <TextView
         android:id="@+id/CrustTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center_vertical"
         android:text="Crust: "
         android:textColor="#0B0B0B"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/QuantityTextView"
-        app:layout_constraintEnd_toStartOf="@+id/CrustValEditText"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SizeSpinner"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/SizeSpinner" />
 
     <TextView
         android:id="@+id/QuantityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:text="Select Quantity"
         android:textColor="#0B0B0B"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CrustValEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/PizzaImageView" />
 
     <Button
         android:id="@+id/MinusButton"
         android:layout_width="75dp"
         android:layout_height="40dp"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="25dp"
         android:text="-"
         app:layout_constraintEnd_toStartOf="@+id/QuantityEditTextNumber"
         app:layout_constraintStart_toEndOf="@+id/QuantityTextView"
@@ -115,13 +103,11 @@
         android:id="@+id/QuantityEditTextNumber"
         android:layout_width="70dp"
         android:layout_height="39dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="number"
         android:text="1"
-        app:layout_constraintBottom_toTopOf="@+id/ProvoloneCheckBox"
         app:layout_constraintEnd_toStartOf="@+id/PlusButton"
         app:layout_constraintStart_toEndOf="@+id/MinusButton"
         app:layout_constraintTop_toBottomOf="@+id/PizzaImageView" />
@@ -130,7 +116,7 @@
         android:id="@+id/PlusButton"
         android:layout_width="76dp"
         android:layout_height="45dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="4dp"
         android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,91 +135,6 @@
         app:layout_constraintStart_toEndOf="@+id/CrustTextView"
         app:layout_constraintTop_toBottomOf="@+id/SizeSpinner" />
 
-    <CheckBox
-        android:id="@+id/SausageCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Sausage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MushroomCheckBox" />
-
-    <CheckBox
-        android:id="@+id/PepperoniCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:text="Pepperoni"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/QuantityEditTextNumber" />
-
-    <CheckBox
-        android:id="@+id/GreenPepperCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Green Pepper"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PepperoniCheckBox" />
-
-    <CheckBox
-        android:id="@+id/OnionCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Onion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GreenPepperCheckBox" />
-
-    <CheckBox
-        android:id="@+id/MushroomCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Mushroom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OnionCheckBox" />
-
-    <CheckBox
-        android:id="@+id/BBQChickenCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="BBQ Chicken"
-        app:layout_constraintBottom_toTopOf="@+id/AddOrderButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HamCheckBox"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/ProvoloneCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="68dp"
-        android:text="Provolone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PlusButton" />
-
-    <CheckBox
-        android:id="@+id/BeefCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="Beef"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CheddarCheckBox" />
-
-    <CheckBox
-        android:id="@+id/HamCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="Ham"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BeefCheckBox" />
-
     <TextView
         android:id="@+id/ToppingTextView"
         android:layout_width="wrap_content"
@@ -245,5 +146,18 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/QuantityTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_view_menu"
+        android:layout_width="375dp"
+        android:layout_height="345dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/AddOrderButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ToppingTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

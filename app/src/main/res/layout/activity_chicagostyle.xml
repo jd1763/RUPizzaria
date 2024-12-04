@@ -11,22 +11,11 @@
         android:id="@+id/ChicagoAddOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="68dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="33dp"
         android:text="Add to Order"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoBBQChickenCheckBox" />
-
-    <CheckBox
-        android:id="@+id/ChicagoCheddarCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="Cheddar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoProvoloneCheckBox" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/ChicagoPizzaSubTotal"
@@ -35,7 +24,7 @@
         android:layout_below="@id/ChicagoAddOrderButton"
         android:layout_alignParentStart="true"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="33dp"
         android:autofillHints=""
         android:clickable="false"
         android:focusable="false"
@@ -43,8 +32,8 @@
         android:inputType="none"
         android:minHeight="48dp"
         android:text="@string/sub_total_format"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoSausageCheckBox" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/ChicagoPizzaImageView"
@@ -63,7 +52,7 @@
         android:layout_width="184dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,38 +67,37 @@
     <TextView
         android:id="@+id/ChicagoCrustTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center_vertical"
         android:text="Crust: "
         android:textColor="#0B0B0B"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/ChicagoQuantityTextView"
         app:layout_constraintEnd_toStartOf="@+id/ChicagoCrustValEditText"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoSizeSpinner"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ChicagoSizeSpinner" />
 
     <TextView
         android:id="@+id/ChicagoQuantityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:text="Select Quantity"
         android:textColor="#0B0B0B"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoCrustValEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/ChicagoPizzaImageView" />
 
     <Button
         android:id="@+id/ChicagoMinusButton"
         android:layout_width="75dp"
         android:layout_height="40dp"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="25dp"
         android:text="-"
         app:layout_constraintEnd_toStartOf="@+id/ChicagoQuantityEditTextNumber"
         app:layout_constraintStart_toEndOf="@+id/ChicagoQuantityTextView"
@@ -119,13 +107,11 @@
         android:id="@+id/ChicagoQuantityEditTextNumber"
         android:layout_width="70dp"
         android:layout_height="39dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="number"
         android:text="1"
-        app:layout_constraintBottom_toTopOf="@+id/ChicagoProvoloneCheckBox"
         app:layout_constraintEnd_toStartOf="@+id/ChicagoPlusButton"
         app:layout_constraintStart_toEndOf="@+id/ChicagoMinusButton"
         app:layout_constraintTop_toBottomOf="@+id/ChicagoPizzaImageView" />
@@ -134,7 +120,7 @@
         android:id="@+id/ChicagoPlusButton"
         android:layout_width="76dp"
         android:layout_height="45dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="4dp"
         android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,91 +139,6 @@
         app:layout_constraintStart_toEndOf="@+id/ChicagoCrustTextView"
         app:layout_constraintTop_toBottomOf="@+id/ChicagoSizeSpinner" />
 
-    <CheckBox
-        android:id="@+id/ChicagoSausageCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Sausage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoMushroomCheckBox" />
-
-    <CheckBox
-        android:id="@+id/ChicagoPepperoniCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:text="Pepperoni"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoQuantityEditTextNumber" />
-
-    <CheckBox
-        android:id="@+id/ChicagoGreenPepperCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Green Pepper"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoPepperoniCheckBox" />
-
-    <CheckBox
-        android:id="@+id/ChicagoOnionCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Onion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoGreenPepperCheckBox" />
-
-    <CheckBox
-        android:id="@+id/ChicagoMushroomCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Mushroom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoOnionCheckBox" />
-
-    <CheckBox
-        android:id="@+id/ChicagoBBQChickenCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="BBQ Chicken"
-        app:layout_constraintBottom_toTopOf="@+id/ChicagoAddOrderButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoHamCheckBox"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/ChicagoProvoloneCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="68dp"
-        android:text="Provolone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoPlusButton" />
-
-    <CheckBox
-        android:id="@+id/ChicagoBeefCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="Beef"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoCheddarCheckBox" />
-
-    <CheckBox
-        android:id="@+id/ChicagoHamCheckBox"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:text="Ham"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ChicagoBeefCheckBox" />
-
     <TextView
         android:id="@+id/ChicagoToppingTextView"
         android:layout_width="wrap_content"
@@ -249,5 +150,18 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ChicagoQuantityTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chicago_rc_view_menu"
+        android:layout_width="375dp"
+        android:layout_height="345dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/ChicagoAddOrderButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ChicagoToppingTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

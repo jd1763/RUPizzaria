@@ -51,6 +51,19 @@
     <string name="beef">Beef</string>
     <string name="ham">Ham</string>
 
+    <string-array name="toppingNames">
+        <item>Sausage</item>
+        <item>Pepperoni</item>
+        <item>Green Pepper</item>
+        <item>Onion</item>
+        <item>Mushroom</item>
+        <item>Cheddar</item>
+        <item>BBQ Chicken</item>
+        <item>Provolone</item>
+        <item>Beef</item>
+        <item>Ham</item>
+    </string-array>
+
     <!-- Errors and Prompts -->
     <string name="empty_order_error">Your order is empty. Add items to place an order.</string>
     <string name="pizza_selection_error">Please select a pizza type and crust.</string>
