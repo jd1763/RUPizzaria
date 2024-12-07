@@ -2,6 +2,7 @@ package com.example.pizzeria;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -125,9 +126,22 @@ public class CurrentOrderActivity extends AppCompatActivity implements AdapterVi
             Toast.makeText(this, "Your order is empty.", Toast.LENGTH_SHORT).show();
             return;
         }
-        orderManager.placeCurrentOrder();
-        Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
-        updateView();
+        AlertDialog.Builder builder = new AlertDialog.Builder(CurrentOrderActivity.this);
+        builder.setMessage("Place order?");
+        builder.setTitle("Order Confirmation");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which)
+        -> {
+            orderManager.placeCurrentOrder();
+            Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
+            updateView();
+        });
+        builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which)
+        -> {
+           dialog.cancel();
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     /**

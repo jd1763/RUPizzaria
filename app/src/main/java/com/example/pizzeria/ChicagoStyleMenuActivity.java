@@ -200,10 +200,9 @@ public class ChicagoStyleMenuActivity extends AppCompatActivity
      * @param crustType The crust type.
      */
     private void selectPizza(String pizzaType, String crustType) {
-        clearToppings();
         Crust crust = Crust.valueOf(crustType.replace(" ", "_").toUpperCase());
         Size selectedSize = getSelectedSize();
-
+        updateToppingsAccessibility(pizzaType);
         switch (pizzaType) {
             case "Deluxe":
                 currentPizza = new Deluxe(crust, selectedSize);
@@ -216,6 +215,7 @@ public class ChicagoStyleMenuActivity extends AppCompatActivity
                 break;
             case "Build Your Own":
                 currentPizza = new BuildYourOwn(crust, selectedSize);
+                toppingsAdapter.resetSelections();
                 toppingsAdapter.enableSelectButtons();
                 break;
             default:
@@ -363,7 +363,7 @@ public class ChicagoStyleMenuActivity extends AppCompatActivity
         }
         Log.d("DEBUG", "Order reset successfully.");
         selectPizza(pizzaTypeSpinner.getSelectedItem().toString(),
-                sizeSpinner.getSelectedItem().toString());
+                crustValEditText.getText().toString());
     }
 
     /**

@@ -66,8 +66,10 @@ public class ToppingsAdapter extends RecyclerView.Adapter<ToppingsAdapter.Toppin
     public void updateSelections(List<String> toppingsList) {
         for (ToppingItem topping : toppings) {
             if (toppingsList.contains(topping.getToppingName())) topping.setSelected(true);
+            else topping.setSelected(false);
             topping.setToppingPrice("");
         }
+        notifyDataSetChanged();
     }
 
     /**

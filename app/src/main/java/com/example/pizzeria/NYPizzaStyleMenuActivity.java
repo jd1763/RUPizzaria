@@ -201,7 +201,6 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity
      * @param crustType The crust type.
      */
     private void selectPizza(String pizzaType, String crustType) {
-        clearToppings();
         Crust crust = Crust.valueOf(crustType.replace(" ", "_").toUpperCase());
         Size selectedSize = getSelectedSize();
 
@@ -217,6 +216,7 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity
                 break;
             case "Build Your Own":
                 currentPizza = new BuildYourOwn(crust, selectedSize);
+                toppingsAdapter.resetSelections();
                 toppingsAdapter.enableSelectButtons();
                 break;
             default:
@@ -224,13 +224,16 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity
                 currentPizza = null;
                 return;
         }
+        updateToppingsAccessibility(pizzaType);
 
         if (currentPizza != null) {
             currentPizza.setCrust(crust);
             updateTotalPrice();
         }
 
-        if (!pizzaType.equals("Build Your Own")) toppingsAdapter.disableSelectButtons();
+        if (!pizzaType.equals("Build Your Own")) {
+            toppingsAdapter.disableSelectButtons();
+        }
     }
 
     /**
@@ -352,19 +355,12 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity
      * and resetting the UI.
      */
     private void resetOrder() {
-        Log.d("DEBUG", "Resetting order...");
-        if (currentPizza != null) {
-            Log.d("DEBUG", "Current pizza before reset: " + currentPizza.toString());
-        } else {
-            Log.d("DEBUG", "No current pizza to reset.");
-        }
         quantityEditTextNumber.setText("1");
         if ("Build Your Own".equals(pizzaTypeSpinner.getSelectedItem().toString())) {
             clearToppings();
         }
-        Log.d("DEBUG", "Order reset successfully.");
         selectPizza(pizzaTypeSpinner.getSelectedItem().toString(),
-                sizeSpinner.getSelectedItem().toString());
+                getCrustType(pizzaTypeSpinner.getSelectedItem().toString()));
     }
 
     /**
@@ -372,6 +368,7 @@ public class NYPizzaStyleMenuActivity extends AppCompatActivity
      */
     private void clearToppings() {
         toppingsAdapter.resetSelections();
+        Log.e("DEBUG", "Reset the toppings");
         updateTotalPrice();
     }
 

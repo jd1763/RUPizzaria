@@ -1,5 +1,7 @@
 package com.example.pizzeria;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
 /**
@@ -137,8 +139,18 @@ public abstract class Pizza {
      *
      * @return a formatted string with the pizza's size, crust, and toppings.
      */
+    @NonNull
     @Override
     public String toString() {
-        return String.format("Size: %s, Crust: %s, Toppings: %s", size, crust, toppings);
+        StringBuilder toppingsStr = new StringBuilder();
+        if (toppings.isEmpty()) {
+            toppingsStr = new StringBuilder("No toppings");
+        } else {
+            for (Topping topping : toppings) {
+                toppingsStr.append(topping).append(", ");
+            }
+            toppingsStr.replace(toppingsStr.length()-2, toppingsStr.length(), "");
+        }
+        return String.format("Size: %s\nCrust: %s\nToppings: %s", size, crust, toppingsStr);
     }
 }
