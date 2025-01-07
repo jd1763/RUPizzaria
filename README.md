@@ -1,4 +1,4 @@
-# RUPizzaria
+# Android Pizzeria Order Management System
 
 ## Overview
 
